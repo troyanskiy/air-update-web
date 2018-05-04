@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons right>
+      <button ion-button color="primary" (click)="close()">
+        Close
+      </button>
+    </ion-buttons>
+    <ion-title>Generate config for {{app.title}}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" floating>Select Push key</ion-label>
+      <ion-select [(ngModel)]="pushKey" required>
+        <ion-option *ngFor="let key of pushKeys" [value]="key">{{key.title}}</ion-option>
+      </ion-select>
+      <button ion-button item-end (click)="createNewAccessKeyPush()">Create new</button>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Select Pull key</ion-label>
+      <ion-select [(ngModel)]="pullKey" required>
+        <ion-option *ngFor="let key of pullKeys" [value]="key">{{key.title}}</ion-option>
+      </ion-select>
+      <button ion-button item-end (click)="createNewAccessKeyPull()">Create new</button>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Select update method</ion-label>
+      <ion-select [(ngModel)]="updateMethod" required>
+        <ion-option *ngFor="let method of updateMethods" [value]="method">{{method.title}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Select channel</ion-label>
+      <ion-select [(ngModel)]="channel" required>
+        <ion-option *ngFor="let channel of channels" [value]="channel">{{channel.title}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <button ion-button color="primary" block (click)="generate()">Generate the config</button>
+    </ion-item>
+    <ion-item *ngIf="config">
+      <p class="token-json" [innerHTML]="config | json | pre"></p>
+    </ion-item>
+    <ion-item *ngIf="config">
+      <a [href]="configUrl" download="air-update.config.json">Download json file</a>
+    </ion-item>
+  </ion-list>
+</ion-content>

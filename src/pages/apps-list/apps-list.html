@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Applications</ion-title>
+    <ion-buttons right>
+      <button ion-button color="primary" (click)="createNewApp()">
+        Create an app
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let app of apps">
+    <ion-card-header>
+      <ion-card-title>{{app.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let channel of app.channels">
+          <ion-col>
+            <h2>{{channel.title}}</h2>
+          </ion-col>
+          <ion-col>
+            {{channel.currentVersion || '--.--.--'}} / {{channel.biggestVersion || '--.--.--'}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button ion-button color="primary" (click)="createChannel(app)">Add channel</button>
+            <button ion-button color="primary" (click)="generateConfig(app)">Generate Push/Pull config</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,22 @@
+modal-config-generator {
+
+  ion-content {
+    background: #fff;
+  }
+
+  .token-json {
+    text-overflow: initial;
+    white-space: initial;
+    overflow-y: auto;
+    max-height: 138px;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  ion-list {
+    margin-bottom: 0 !important;
+  }
+
+}

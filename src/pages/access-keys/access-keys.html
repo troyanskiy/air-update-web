@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Access keys</ion-title>
+    <ion-buttons right>
+      <button ion-button color="primary" (click)="createNewAccessKey()">
+        Create deployment key
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let keyData of keys">
+    <ion-card-header>
+      <ion-card-title>{{keyData.title}} <i>({{keyData.type}})</i></ion-card-title>
+      Key: {{keyData.key}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2>Created:</ion-col>
+          <ion-col> {{keyData.creationTime | date : 'medium'}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2>Last activity:</ion-col>
+          <ion-col>{{keyData.lastActivity | date : 'medium'}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2>Description:</ion-col>
+          <ion-col>{{keyData.description}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

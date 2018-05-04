@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons right>
+      <button ion-button color="primary" (click)="close()">
+        Cancel
+      </button>
+    </ion-buttons>
+    <ion-title>{{modalTitle}}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" floating>Title</ion-label>
+      <ion-input [(ngModel)]="title" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Description</ion-label>
+      <ion-input [(ngModel)]="description"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="withCode">
+      <ion-label color="primary" floating>Code</ion-label>
+      <ion-input [(ngModel)]="code" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="withTypes">
+      <ion-label color="primary" floating>Used for</ion-label>
+      <ion-select [(ngModel)]="type" required>
+        <ion-option [value]="AccessKeyType.Pull">Pull updates</ion-option>
+        <ion-option [value]="AccessKeyType.Push">Push updates</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <button ion-button color="primary" block (click)="save()">Create</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
