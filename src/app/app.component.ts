@@ -1,7 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, ViewController } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { ResourceGlobalConfig } from '@ngx-resource/core';
 import { AppsResource } from '../resources/apps.resource';
 import { AuthResource } from '../resources/auth.resource';
@@ -31,14 +29,12 @@ export class MyApp {
   ];
 
   constructor(private platform: Platform,
-              private statusBar: StatusBar,
-              private splashScreen: SplashScreen,
 
               private authService: AuthService,
               private eventService: EventService,
 
-              private appResource: AppsResource,
-              private authResource: AuthResource
+              private appResource: AppsResource, // tslint:disable-line
+              private authResource: AuthResource // tslint:disable-line
 
   ) {
 
@@ -63,8 +59,8 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      // this.statusBar.styleDefault();
+      // this.splashScreen.hide();
     });
   }
 

@@ -7,8 +7,6 @@ import { ResourceModule } from '@ngx-resource/handler-ngx-http';
 import { MyApp } from './app.component';
 import { ComponentsModule } from '../components/components.module';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AuthResource } from '../resources/auth.resource';
 import { AppsResource } from '../resources/apps.resource';
@@ -37,8 +35,6 @@ import { PipesModule } from '../pipes/pipes.module';
     MyApp,
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
     AuthResource,
